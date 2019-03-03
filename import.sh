@@ -2,7 +2,7 @@
 set -eu -o pipefail
 [[ "${TRACE:-}" ]] && set -x
 
-SERVER_DEFAULT="http://localhost:5000"
+SERVER_DEFAULT="http://localhost:3000"
 
 SERVER=${SERVER:-${SERVER_DEFAULT}}
 patients_json=${1:-}
