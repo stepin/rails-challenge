@@ -22,11 +22,12 @@ if [[ -z "${patients_json}" ]] || [[ -z "${payments_json}" ]]; then
 fi
 
 echo "Upload patients:"
-patients_url="${SERVER}/patients"
+patients_url="${SERVER}/v1/patients"
 curl -f -X POST -H "Content-Type: application/json" -d "@${patients_json}" "${patients_url}"
+echo
 echo
 
 echo "Upload payments:"
-payments_url="${SERVER}/payments"
+payments_url="${SERVER}/v1/payments"
 curl -f -X POST -H "Content-Type: application/json" -d "@${payments_json}" "${payments_url}"
 echo
