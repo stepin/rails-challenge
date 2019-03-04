@@ -8,7 +8,6 @@ module V1
 
       assert_response :success
 
-      puts "body:", @response.body, "end"
       response = JSON.parse(@response.body)
       assert 3 == response.length
     end
@@ -18,7 +17,6 @@ module V1
 
       assert_response :success
 
-      puts "body:", @response.body, "end"
       response = JSON.parse(@response.body)
       assert 2 == response.length
     end

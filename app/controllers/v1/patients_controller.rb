@@ -2,7 +2,7 @@ module V1
   class PatientsController < ApplicationController
 
     def index
-      render json: []
+      @patients = Patient.all
     end
 
     def import
@@ -10,5 +10,6 @@ module V1
     end
 
     private
+
   end
 end
