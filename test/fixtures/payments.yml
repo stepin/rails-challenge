@@ -1,13 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+  <% @sync_id = SecureRandom.hex(32) %>
 
 one:
-  amount: 1.5
-  patient: 
-  external_id: MyString
-  sync_id: MyString
+  amount: <%= (rand(9900) + 100) / 100.0 %>
+  patient: :one
+  external_id: <%= Faker::IDNumber.valid %>
+  sync_id: <%= @sync_id %>
 
 two:
-  amount: 1.5
-  patient: 
-  external_id: MyString
-  sync_id: MyString
+  amount: <%= (rand(9900) + 100) / 100.0 %>
+  patient: :one
+  external_id: <%= Faker::IDNumber.valid %>
+  sync_id: <%= @sync_id %>
+
+three:
+  amount: <%= (rand(9900) + 100) / 100.0 %>
+  patient: :two
+  external_id: <%= Faker::IDNumber.valid %>
+  sync_id: <%= @sync_id %>
