@@ -10,6 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_03_04_075511) do
+
+  create_table "patients", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "middle_name"
+    t.date "date_of_birth"
+    t.string "external_id", null: false
+    t.string "sync_id", limit: 32
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "index_patients_on_external_id", unique: true
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.float "amount", null: false
+    t.integer "patient_id", null: false
+    t.string "external_id", null: false
+    t.string "sync_id", limit: 32
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "index_payments_on_external_id", unique: true
+    t.index ["patient_id"], name: "index_payments_on_patient_id"
+  end
 
 end
