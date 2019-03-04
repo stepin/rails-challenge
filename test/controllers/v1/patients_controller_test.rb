@@ -9,7 +9,8 @@ module V1
       assert_response :success
 
       response = JSON.parse(@response.body)
-      assert 3 == response.length
+      assert_equal 2, response.length
+      assert_not_nil response[0]["total_amount"]
     end
 
     test "simple import patients" do
