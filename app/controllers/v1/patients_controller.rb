@@ -10,10 +10,21 @@ module V1
     end
 
     def import
+      sync_id = new_sync_id
+      upsert_patients(request_json, sync_id)
+      delete_old_patients(sync_id)
       render json: {'status': 'OK'}
     end
 
     private
+
+    def upsert_patients(request_json, sync_id)
+      # code here
+    end
+
+    def delete_old_patients(sync_id)
+      Patient.where("sync_id <> ?", sync_id).delete_all
+    end
 
     def extra_join_sql
       payment_min = params['payment_min']
