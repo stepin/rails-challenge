@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: 
+  last_name: MyString
+  middle_name: MyString
+  date_of_birth: 2019-03-04
+  external_id: MyString
+  sync_id: MyString
+
+two:
+  first_name: 
+  last_name: MyString
+  middle_name: MyString
+  date_of_birth: 2019-03-04
+  external_id: MyString
+  sync_id: MyString
