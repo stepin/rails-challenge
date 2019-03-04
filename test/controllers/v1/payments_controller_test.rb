@@ -8,9 +8,21 @@ module V1
 
       assert_response :success
 
+      puts "body:", @response.body, "end"
       response = JSON.parse(@response.body)
-      assert 0 == response.length
+      assert 3 == response.length
     end
+
+    test "get payments for first patient" do
+      get v1_payments_path, params:{ external_id: patients[0].external_id }
+
+      assert_response :success
+
+      puts "body:", @response.body, "end"
+      response = JSON.parse(@response.body)
+      assert 2 == response.length
+    end
+
 
     test "simple import payments" do
       body = File.read('patients.json')

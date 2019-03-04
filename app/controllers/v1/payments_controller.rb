@@ -2,7 +2,8 @@ module V1
   class PaymentsController < ApplicationController
 
     def index
-      render json: []
+      patient_id = get_patient_id
+      @payments = patient_id.blank? ? Payment.all : Payment.where('patient_id': patient_id).all
     end
 
     def import
@@ -10,5 +11,10 @@ module V1
     end
 
     private
+
+    def get_patient_id
+      patient_external_id = params[:external_id]
+      Patient.find_by_external_id patient_external_id
+    end
   end
 end
