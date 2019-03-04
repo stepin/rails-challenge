@@ -21,6 +21,14 @@ module V1
       assert 2 == response.length
     end
 
+    test "get payments for non-existing patient" do
+      get v1_payments_path, params:{ external_id: "C" }
+
+      assert_response :success
+
+      response = JSON.parse(@response.body)
+      assert 0 == response.length
+    end
 
     test "simple import payments" do
       body = File.read('patients.json')

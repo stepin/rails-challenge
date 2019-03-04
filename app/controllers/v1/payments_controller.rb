@@ -3,7 +3,7 @@ module V1
 
     def index
       patient_id = get_patient_id
-      @payments = patient_id.blank? ? Payment.all : Payment.where('patient_id': patient_id).all
+      @payments = Payment.filter_by_patient_id_if_present(patient_id).all
     end
 
     def import
@@ -13,8 +13,10 @@ module V1
     private
 
     def get_patient_id
+      return nil unless params.has_key? :external_id
       patient_external_id = params[:external_id]
-      Patient.find_by_external_id patient_external_id
+      patient = Patient.find_by_external_id(patient_external_id)
+      patient ? patient.id : ''
     end
   end
 end
