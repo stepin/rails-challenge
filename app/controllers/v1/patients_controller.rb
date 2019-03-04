@@ -2,11 +2,11 @@ module V1
   class PatientsController < ApplicationController
 
     def index
-      render json: "ok"
+      render json: []
     end
 
     def import
-      render json: "ok"
+      render json: {'status': 'OK'}
     end
 
     private
