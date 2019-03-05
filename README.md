@@ -1,34 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It's Rails version of Flask Python Backend Challenge https://github.com/stepin/python-challenge .
+Just to see how it will be different in another language and framework.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+### Rails installation on macOS
 
-* System dependencies
+    brew install rbenv
+    rbenv init
+    #manual steps described in rbenv init
+    rbenv install 2.6.1
+    rbenv global 2.6.1
+    gem install rails
+    rbenv rehash
 
-* Configuration
+### App start
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-## Test data
-
-    p1 = Patient.create first_name:"AF", last_name:"AL", external_id:"A"
-    p2 = Patient.create first_name:"BF", last_name:"BL", external_id:"B"
-    
-    pay1 = Payment.create external_id:"a1", amount:10, patient_id:1
-    pay2 = Payment.create external_id:"a2", amount:40, patient_id:1
-    pay3 = Payment.create external_id:"b1", amount:7, patient_id:2
+    bundle
+    bundle exec rake db:create db:seed
+    bundle exec rails server
